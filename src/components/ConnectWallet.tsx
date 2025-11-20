@@ -12,7 +12,7 @@ export default function ConnectWallet() {
     <div>
       <button
         onClick={() => setIsModalOpen(true)}  
-        className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50 text-lg px-2 py-1 rounded-full"
+        className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50 text-lg p-5 rounded-sm"
                     >
                       <Wallet className="mr-2 h-5 w-5" />
       
