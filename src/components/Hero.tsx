@@ -42,15 +42,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              size="lg" 
-              onClick={handleConnectWallet}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50 text-lg px-8 py-6"
-            >
-              <Wallet className="mr-2 h-5 w-5" />
               <ConnectWallet/>
-              Connect Wallet
-            </Button>
             <Link to="/markets">
               <Button size="lg" variant="outline" className="border-slate-700 text-white hover:bg-slate-800/50 text-lg px-8 py-6">
                 Explore DeFi Markets

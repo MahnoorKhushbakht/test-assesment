@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LogIn, LayoutDashboard, Wallet } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import ConnectWallet from "./ConnectWallet";
 
 const Navigation = () => {
   const { isAuthenticated, loading } = useAuth();
@@ -49,13 +50,7 @@ const Navigation = () => {
               </Link>
             ) : (
               <>
-                <Button 
-                  onClick={handleConnectWallet}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Wallet className="mr-2 h-4 w-4" />
-                  Connect Wallet
-                </Button>
+                <ConnectWallet/>
                 <Link to="/login">
                   <Button variant="ghost" className="text-white hover:bg-white/10 hidden sm:flex">
                     <LogIn className="mr-2 h-4 w-4" />

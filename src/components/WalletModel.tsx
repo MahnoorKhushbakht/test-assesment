@@ -6,7 +6,7 @@ interface WalletModelProps {
   onClose: () => void;
 }
 
-export default function WalletModel({ isOpen, onClose }: WalletModelProps) {
+export default function WalletModel({ isOpen }: WalletModelProps) {
     const { connect } = useMetaMask();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -37,12 +37,7 @@ export default function WalletModel({ isOpen, onClose }: WalletModelProps) {
         >
           {loading ? "Connecting..." : "Connect MetaMask"}
         </button>
-        <button
-          onClick={onClose} 
-          className="w-full mt-4 bg-gray-300 text-black py-2 px-4 rounded hover:bg-gray-400"
-        >
-          Close
-        </button>
+
       </div>
     </div>
 
