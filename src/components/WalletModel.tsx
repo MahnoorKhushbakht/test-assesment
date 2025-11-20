@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useWallet } from "../contexts/WalletContext";
+import { useMetaMask } from "../hooks/useMetaMask";
 
 interface WalletModelProps {
   isOpen: boolean;
@@ -7,30 +7,22 @@ interface WalletModelProps {
 }
 
 export default function WalletModel({ isOpen, onClose }: WalletModelProps) {
-  const {account,setAccount} = useWallet();
+    const { connect } = useMetaMask();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const connectWallet = async () => {
+  const handleConnect = async () => {
     setLoading(true);
     setMessage("");
-
-    if(typeof window.ethereum === "undefined") {
-      setMessage("MetaMask is not installed. Please install it to connect your wallet.");
-      setLoading(false);
-      return;
-    }
     try {
-      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-      setAccount(accounts[0]);
-      setMessage("Wallet connected successfully!");
-    } catch (error) {
-      setMessage("Failed to connect wallet. Please try again.");
-    } finally {
-      setLoading(false);
+      await connect();
+      setMessage("Connected!");
+    } catch (err: unknown) {
+      if (err instanceof Error) setMessage(err.message);
+      else setMessage("Connection failed");
     }
-  }
-
+    setLoading(false);
+  };
 
   if (!isOpen) return null;
   return(
@@ -39,9 +31,9 @@ export default function WalletModel({ isOpen, onClose }: WalletModelProps) {
         <h2 className="text-xl font-semibold mb-4">Connect Your Wallet</h2>
         {message && <p className="mb-4 text-red-500">{message}</p>}
         <button
-          onClick={connectWallet}
+          onClick={handleConnect}
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:opacity-50"
+          className="w-full bg-slate-500 text-white py-2 px-4 rounded hover:bg-slate-600 disabled:opacity-50"
         >
           {loading ? "Connecting..." : "Connect MetaMask"}
         </button>
