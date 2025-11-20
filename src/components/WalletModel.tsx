@@ -26,7 +26,7 @@ export default function WalletModel({ isOpen }: WalletModelProps) {
   if (!isOpen) return null;
   return(
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-96">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700  text-white shadow-lg hadow-blue-500/50 rounded-lg p-6 w-96">
         <h2 className="text-xl font-semibold mb-4">Connect Your Wallet</h2>
         {message && <p className="mb-4 text-red-500">{message}</p>}
         <button
