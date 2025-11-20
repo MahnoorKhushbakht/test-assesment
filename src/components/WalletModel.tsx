@@ -3,7 +3,6 @@ import { useMetaMask } from "../hooks/useMetaMask";
 
 interface WalletModelProps {
   isOpen: boolean;
-  onClose: () => void;
 }
 
 export default function WalletModel({ isOpen }: WalletModelProps) {

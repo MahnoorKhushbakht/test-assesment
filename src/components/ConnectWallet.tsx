@@ -6,10 +6,11 @@ import { Wallet } from "lucide-react";
 export default function ConnectWallet() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { account } = useWallet();
+
+  
   return (
     <div>
       <button
-             size="lg" 
         onClick={() => setIsModalOpen(true)}  
         className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50 text-lg px-8 py-6"
                     >
