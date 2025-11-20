@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Shield, Zap, Wallet } from "lucide-react";
 import { toast } from "sonner";
+import ConnectWallet from "./ConnectWallet";
 
 const Hero = () => {
   const handleConnectWallet = () => {
@@ -47,6 +48,7 @@ const Hero = () => {
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50 text-lg px-8 py-6"
             >
               <Wallet className="mr-2 h-5 w-5" />
+              <ConnectWallet/>
               Connect Wallet
             </Button>
             <Link to="/markets">
